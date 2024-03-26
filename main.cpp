@@ -28,10 +28,14 @@ T applyOperation(T a, T b, Operation op) {
 // Example usage
 int main() {
     double a = 5.5, b = 2.2;
-    Operation op = Add{};
+    Operation op_add = Add{};
+    Operation op_sub = Subtract{};
 
-    auto result = applyOperation(a, b, op);
-    std::cout << "Result: " << result << std::endl;
+    auto result_add = applyOperation(a, b, op_app);
+    std::cout << "Result: " << result_add << std::endl;
+
+    auto result_sub = applyOperation(a, b, op_sub);
+    std::cout << "Result: " << result_sub << std::endl;
 
     // Try more operations, including int operations
     // Consider implementing user input parsing and operation selection
