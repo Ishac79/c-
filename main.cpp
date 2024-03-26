@@ -31,7 +31,7 @@ int main() {
     Operation op_add = Add{};
     Operation op_sub = Subtract{};
 
-    auto result_add = applyOperation(a, b, op_app);
+    auto result_add = applyOperation(a, b, op_add);
     std::cout << "Result: " << result_add << std::endl;
 
     auto result_sub = applyOperation(a, b, op_sub);
