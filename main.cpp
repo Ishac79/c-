@@ -32,7 +32,8 @@ T applyOperation(T a, T b, Operation op) {
 
 // Example usage
 int main() {
-    double a = 5.5, b = 2.2;
+    double a = 5, b = 2;
+
     Operation op_add = Add{};
     Operation op_sub = Subtract{};
     Operation op_mul = Multiply{};
