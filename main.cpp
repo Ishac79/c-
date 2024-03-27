@@ -44,7 +44,7 @@ int main() {
     std::cout << "Result: " << result_sub << std::endl;
 
     auto result_mul = applyOperation(a, b, op_mul);
-    std::cour << "Result: " << result_mul << std::endl;
+    std::cout << "Result: " << result_mul << std::endl;
 
     // Try more operations, including int operations
     // Consider implementing user input parsing and operation selection
