@@ -61,16 +61,16 @@ int main() {
     Operation op_div = Divide{};
 
     auto result_add = applyOperation(a, b, op_add);
-    std::cout << "Result: " << printResult(result_add) << std::endl;
+    std::cout << "Result: " << printOptional(result_add) << std::endl;
 
     auto result_sub = applyOperation(a, b, op_sub);
-    std::cout << "Result: " << printResult(result_sub) << std::endl;
+    std::cout << "Result: " << printOptional(result_sub) << std::endl;
 
     auto result_mul = applyOperation(a, b, op_mul);
-    std::cout << "Result: " << printResult(result_mul) << std::endl;
+    std::cout << "Result: " << printOptional(result_mul) << std::endl;
 
     auto result_div = applyOperation(a, b, op_div);
-    std::cout << "Result: " << printResult(result_div) << std::endl;
+    std::cout << "Result: " << printOptional(result_div) << std::endl;
 
     // Consider implementing user input parsing and operation selection
 
