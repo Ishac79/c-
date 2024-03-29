@@ -6,18 +6,18 @@
 
 // Define operations
 struct Add {
-    auto operator()(double a, double b) const { return a + b; }
-    auto operator()(int a, int b) const { return a + b; }
+    std::optional<double> operator()(double a, double b) const { return a + b; }
+    std::optional<int> operator()(int a, int b) const { return a + b; }
 };
 
 struct Subtract {
-    auto operator()(double a, double b) const { return a - b; }
-    auto operator()(int a, int b) const { return a - b; }
+    std::optional<double> operator()(double a, double b) const { return a - b; }
+    std::optional<int> operator()(int a, int b) const { return a - b; }
 };
 
 struct Multiply {
-    auto operator()(double a, double b) const { return a * b; }
-    auto operator()(int a, int b) const { return a * b; }
+    std::optional<double> operator()(double a, double b) const { return a * b; }
+    std::optional<int> operator()(int a, int b) const { return a * b; }
 };
 
 struct Divide {
