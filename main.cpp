@@ -53,7 +53,7 @@ std::string printOptional(const std::optional<T>& opt) {
 
 // Example usage
 int main() {
-    double a = 5, b = 2;
+    double a = 5.5, b = 0.0;
 
     Operation op_add = Add{};
     Operation op_sub = Subtract{};
