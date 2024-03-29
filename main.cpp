@@ -41,6 +41,16 @@ std::optional<T> applyOperation(T a, T b, Operation op) {
     return std::visit([a, b](auto&& operation) { return operation(a, b); }, op);
 }
 
+// Print optional
+template<typename T>
+void printOptional(const std::optional<T>& opt) {
+    if (opt) {
+        std::cout << *opt;
+    } else {
+        std::cout << "No value";
+    }
+}
+
 // Example usage
 int main() {
     double a = 5, b = 2;
@@ -51,16 +61,16 @@ int main() {
     Operation op_div = Divide{};
 
     auto result_add = applyOperation(a, b, op_add);
-    std::cout << "Result: " << result_add << std::endl;
+    std::cout << "Result: " << printResult(result_add) << std::endl;
 
     auto result_sub = applyOperation(a, b, op_sub);
-    std::cout << "Result: " << result_sub << std::endl;
+    std::cout << "Result: " << printResult(result_sub) << std::endl;
 
     auto result_mul = applyOperation(a, b, op_mul);
-    std::cout << "Result: " << result_mul << std::endl;
+    std::cout << "Result: " << printResult(result_mul) << std::endl;
 
     auto result_div = applyOperation(a, b, op_div);
-    std::cout << "Result: " << result_div << std::endl;
+    std::cout << "Result: " << printResult(result_div) << std::endl;
 
     // Consider implementing user input parsing and operation selection
 
