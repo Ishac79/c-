@@ -45,9 +45,9 @@ std::optional<T> applyOperation(T a, T b, Operation op) {
 template<typename T>
 std::string printOptional(const std::optional<T>& opt) {
     if (opt) {
-        std::cout << std::string(*opt);
+        return std::to_string(*opt);
     } else {
-        std::cout << "No value";
+        return "No value";
     }
 }
 
