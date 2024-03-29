@@ -2,6 +2,7 @@
 #include <variant>
 #include <string>
 #include <cmath>
+#include <optional>
 
 // Define operations
 struct Add {
@@ -20,13 +21,13 @@ struct Multiply {
 };
 
 struct Divide {
-    auto operator()(double a, double b) const {
-        if (b == 0) return 0.0;
+    std::optional<double> operator()(double a, double b) const {
+        if (b == 0) return std::nullopt;
         return a / b;
     };
 
-    auto operator()(int a, int b) const {
-        if (b == 0) return 0;
+    std::optional<int> operator()(int a, int b) const {
+        if (b == 0) return std::nullopt;
         return a / b;
     }
 };
