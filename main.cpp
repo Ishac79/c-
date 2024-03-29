@@ -37,7 +37,7 @@ using Operation = std::variant<Add, Subtract, Multiply, Divide>;
 
 // Apply operation
 template<typename T>
-T applyOperation(T a, T b, Operation op) {
+std::optional<T> applyOperation(T a, T b, Operation op) {
     return std::visit([a, b](auto&& operation) { return operation(a, b); }, op);
 }
 
