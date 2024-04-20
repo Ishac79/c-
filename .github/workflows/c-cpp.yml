@@ -18,7 +18,7 @@ jobs:
           modules: 'qtbase'
 
       - name: Set QT_BASE_DIR environment variable
-        run: echo "QT_BASE_DIR=/opt/qt/5.15.2" >> $GITHUB_ENV
+        run: echo "QT_BASE_DIR=/opt/qt/5.15.2/5.15.2" >> $GITHUB_ENV
 
       - name: Check Qt installation and environment variable
         run: |
