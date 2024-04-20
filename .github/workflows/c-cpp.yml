@@ -7,12 +7,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v3.3.0
-    - uses: actions/checkout@v2
-    - name: Install G++
-      run: sudo apt-get install g++ -y
-    - name: Compile main.cpp file
-      run: g++ main.cpp -o main
-    - name: Run compiled file
-      run: ./main  
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3.3.0
+
+      - name: Install G++
+        run: sudo apt-get install g++ -y
+
+      - name: Compile main.cpp file
+        run: g++ main.cpp -o qtwmain
+
+      - name: Run Qt Widgets compiled file
+        run: ./qtwmain
+
+      - name: Run QML file
+        run: qmlscene main.qml
