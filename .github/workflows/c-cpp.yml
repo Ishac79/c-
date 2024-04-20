@@ -13,7 +13,7 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v3.3.0
         with:
-          dir: '/opt/qt'
+          dir: '/opt/qt/5.12.5'
           version: '5.15.2'
           modules: 'qtbase'
 
