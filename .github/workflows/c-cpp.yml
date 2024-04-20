@@ -12,13 +12,31 @@ jobs:
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v3.3.0
+        with:
+          dir: '/opt/qt'
+          version: '5.15.2'
+          modules: 'qtbase'
 
+      - name: Set QT_BASE_DIR environment variable
+        run: echo "QT_BASE_DIR=/opt/qt/5.15.2" >> $GITHUB_ENV
+
+      - name: Check Qt installation and environment variable
+        run: |
+          echo "QT_BASE_DIR: $QT_BASE_DIR"
+          ls -la $QT_BASE_DIR
+      
       - name: Install G++
         run: sudo apt-get install g++ -y
 
       - name: Compile main.cpp file
-        run: g++ main.cpp -o qtwmain
-
+        run: |
+          g++ main.cpp -o qtwmain \
+              -I $QT_BASE_DIR/include \
+              -I $QT_BASE_DIR/include/QtWidgets \
+              -fPIC \
+              -lQt5Widgets -lQt5Core -lQt5Gui \
+              -L $QT_BASE_DIR/lib
+      
       - name: Run Qt Widgets compiled file
         run: ./qtwmain
 
