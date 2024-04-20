@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v3.3.0
     - uses: actions/checkout@v2
     - name: Install G++
       run: sudo apt-get install g++ -y
