@@ -11,14 +11,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v3.3.0
-        with:
-          dir: '/opt/qt/5.12.2'
-          version: '5.15.2'
-          modules: 'qtbase'
+        run: python3 -m aqt install-qt linux desktop 5.15.2 --outputdir /opt/qt/5.15.2
 
       - name: Set QT_BASE_DIR environment variable
-        run: echo "QT_BASE_DIR=/opt/qt/5.15.2/gcc_64" >> $GITHUB_ENV
+        run: echo "QT_BASE_DIR=/opt/qt/5.15.2" >> $GITHUB_ENV
 
       - name: Check Qt installation and environment variable
         run: |
