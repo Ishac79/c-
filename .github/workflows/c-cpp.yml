@@ -10,6 +10,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install aqtinstall
+        run: python3 -m pip install aqtinstall
+
       - name: Install Qt
         run: python3 -m aqt install-qt linux desktop 5.15.2 --outputdir /opt/qt/5.15.2
 
