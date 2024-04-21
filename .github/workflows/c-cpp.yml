@@ -14,10 +14,10 @@ jobs:
         run: python3 -m pip install aqtinstall
 
       - name: Install Qt
-        run: python3 -m aqt install-qt linux desktop 5.15.2 --outputdir /opt/qt/5.15.2
+        run: python3 -m aqt install-qt linux desktop 5.15.2 --outputdir /opt/qt
 
       - name: Set QT_BASE_DIR environment variable
-        run: echo "QT_BASE_DIR=/opt/qt/5.15.2" >> $GITHUB_ENV
+        run: echo "QT_BASE_DIR=/opt/qt/5.15.2/gcc_64" >> $GITHUB_ENV
 
       - name: Check Qt installation and environment variable
         run: |
