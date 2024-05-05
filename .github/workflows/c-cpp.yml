@@ -36,8 +36,15 @@ jobs:
               -lQt5Widgets -lQt5Core -lQt5Gui \
               -L $QT_BASE_DIR/lib
       
-      - name: Run Qt Widgets compiled file
-        run: ./qtwmain
+      - name: Compile myNotes
+        run: |
+          cd myNotes
+          cd build
+          make
 
-      - name: Run QML file
-        run: qmlscene main.qml
+      - name: Compile myPencil
+        run: |
+          cd myPencil
+          cd build
+          make
+          
