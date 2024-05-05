@@ -10,6 +10,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y g++ mesa-common-dev
+
       - name: Install aqtinstall
         run: python3 -m pip install aqtinstall
 
@@ -19,23 +22,6 @@ jobs:
       - name: Set QT_BASE_DIR environment variable
         run: echo "QT_BASE_DIR=/opt/qt/5.15.2/gcc_64" >> $GITHUB_ENV
 
-      - name: Check Qt installation and environment variable
-        run: |
-          echo "QT_BASE_DIR: $QT_BASE_DIR"
-          ls -la $QT_BASE_DIR
-      
-      - name: Install G++
-        run: sudo apt-get install g++ -y
-
-      - name: Compile main.cpp file
-        run: |
-          g++ main.cpp -o qtwmain \
-              -I $QT_BASE_DIR/include \
-              -I $QT_BASE_DIR/include/QtWidgets \
-              -fPIC \
-              -lQt5Widgets -lQt5Core -lQt5Gui \
-              -L $QT_BASE_DIR/lib
-      
       - name: Build myNotes
         run: |
           cd myNotes
@@ -51,5 +37,3 @@ jobs:
           cd build
           cmake -DQt5_DIR=$QT_BASE_DIR/lib/cmake/Qt5 ..
           make
-          
-          
