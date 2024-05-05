@@ -36,15 +36,20 @@ jobs:
               -lQt5Widgets -lQt5Core -lQt5Gui \
               -L $QT_BASE_DIR/lib
       
-      - name: Compile myNotes
+      - name: Build myNotes
         run: |
           cd myNotes
+          mkdir build
           cd build
+          cmake -DQt5_DIR=$QT_BASE_DIR/lib/cmake/Qt5 ..
           make
 
-      - name: Compile myPencil
+      - name: Build myPencil
         run: |
           cd myPencil
+          mkdir build
           cd build
+          cmake -DQt5_DIR=$QT_BASE_DIR/lib/cmake/Qt5 ..
           make
+          
           
